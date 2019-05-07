@@ -19,4 +19,11 @@ public class PopulationController
 		ArrayList<Country> rtnList = CountriesApplication.ourCountryList.findCountries(c -> c.getPopulation() >= people);
 		return new ResponseEntity<>(rtnList, HttpStatus.OK);
 	}
+
+	@GetMapping("/size/min")
+	public ResponseEntity<?> getSmallestCountryByPopulation()
+	{
+		Country smallestCountry = CountriesApplication.ourCountryList.findSmallestCountryByPopulation();
+		return new ResponseEntity<>(smallestCountry, HttpStatus.OK);
+	}
 }

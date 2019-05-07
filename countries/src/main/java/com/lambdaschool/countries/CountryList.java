@@ -211,6 +211,33 @@ public class CountryList
 		countryList.add(new Country("Seychelles",95702,460,36));
 	}
 
+	public Country findSmallestCountryByPopulation()
+	{
+		Country smallest = countryList.get(0);
+
+		for(Country c: countryList)
+		{
+			if(c.getPopulation() < smallest.getPopulation())
+			{
+				smallest = c;
+			}
+		}
+
+		return smallest;
+	}
+
+	public Country findCountry(CheckCountry tester)
+	{
+		for(Country c: countryList)
+		{
+			if(tester.test(c))
+			{
+				return c;
+			}
+		}
+		return null;
+	}
+
 	public ArrayList<Country> findCountries(CheckCountry tester)
 	{
 		ArrayList<Country> tempList = new ArrayList<>();
