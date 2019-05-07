@@ -30,4 +30,14 @@ public class NamesController
 		rtnList.sort((c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName()));
 		return new ResponseEntity<>(rtnList, HttpStatus.OK);
 	}
+
+	// localhost:8080/names/size/20
+	@GetMapping("/size/{number}")
+	public ResponseEntity<?> getAllCountriesAlphabetically(@PathVariable int number)
+	{
+		ArrayList<Country> rtnList = CountriesApplication
+				.ourCountryList.findCountries(c -> c.getName().length() >= number);
+		rtnList.sort((c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName()));
+		return new ResponseEntity<>(rtnList, HttpStatus.OK);
+	}
 }
