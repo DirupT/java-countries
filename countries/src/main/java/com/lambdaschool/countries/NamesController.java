@@ -23,7 +23,7 @@ public class NamesController
 
 	// localhost:8080/names/start/a
 	@GetMapping("/start/{letter}")
-	public ResponseEntity<?> getAllCountriesAlphabetically(@PathVariable char letter)
+	public ResponseEntity<?> getCountriesLetterAlphabetically(@PathVariable char letter)
 	{
 		ArrayList<Country> rtnList = CountriesApplication
 				.ourCountryList.findCountries(c -> c.getName().toUpperCase().charAt(0) == Character.toUpperCase(letter));
@@ -33,7 +33,7 @@ public class NamesController
 
 	// localhost:8080/names/size/20
 	@GetMapping("/size/{number}")
-	public ResponseEntity<?> getAllCountriesAlphabetically(@PathVariable int number)
+	public ResponseEntity<?> getCountriesSizeAlphabetically(@PathVariable int number)
 	{
 		ArrayList<Country> rtnList = CountriesApplication
 				.ourCountryList.findCountries(c -> c.getName().length() >= number);
