@@ -13,6 +13,7 @@ import java.util.ArrayList;
 @RequestMapping("/population")
 public class PopulationController
 {
+	// localhost:8080/population/size/100000
 	@GetMapping("/size/{people}")
 	public ResponseEntity<?> getCountriesByPopulation(@PathVariable int people)
 	{
@@ -20,6 +21,7 @@ public class PopulationController
 		return new ResponseEntity<>(rtnList, HttpStatus.OK);
 	}
 
+	// localhost:8080/population/size/min
 	@GetMapping("/size/min")
 	public ResponseEntity<?> getSmallestCountryByPopulation()
 	{
@@ -27,6 +29,7 @@ public class PopulationController
 		return new ResponseEntity<>(smallestCountry, HttpStatus.OK);
 	}
 
+	// localhost:8080/population/size/max
 	@GetMapping("/size/max")
 	public ResponseEntity<?> getLargestCountryByPopulation()
 	{

@@ -13,10 +13,19 @@ import java.util.ArrayList;
 @RequestMapping("/age")
 public class AgeController
 {
+	// localhost:8080/age/age/40
 	@GetMapping("/age/{age}")
-	public ResponseEntity<?> getCountriesByMedian(@PathVariable int age)
+	public ResponseEntity<?> getCountriesByMedianAge(@PathVariable int age)
 	{
 		ArrayList<Country> rtnList = CountriesApplication.ourCountryList.findCountries(c -> c.getMedianAge() >= age);
 		return new ResponseEntity<>(rtnList, HttpStatus.OK);
+	}
+
+	// localhost:8080/age/min
+	@GetMapping("/min")
+	public ResponseEntity<?> getSmallestCountryByMedianAge()
+	{
+		Country smallestCountry = CountriesApplication.ourCountryList.findSmallestCountryByMedianAge();
+		return new ResponseEntity<>(smallestCountry, HttpStatus.OK);
 	}
 }

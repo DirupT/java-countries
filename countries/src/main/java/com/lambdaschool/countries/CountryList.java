@@ -238,9 +238,23 @@ public class CountryList
 			}
 		}
 
-		return largest ;
+		return largest;
 	}
 
+	public Country findSmallestCountryByMedianAge()
+	{
+		Country smallest = countryList.get(0);
+
+		for(Country c: countryList)
+		{
+			if(c.getMedianAge() < smallest.getMedianAge())
+			{
+				smallest  = c;
+			}
+		}
+
+		return smallest;
+	}
 
 	public Country findCountry(CheckCountry tester)
 	{
