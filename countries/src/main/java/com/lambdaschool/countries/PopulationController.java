@@ -26,4 +26,11 @@ public class PopulationController
 		Country smallestCountry = CountriesApplication.ourCountryList.findSmallestCountryByPopulation();
 		return new ResponseEntity<>(smallestCountry, HttpStatus.OK);
 	}
+
+	@GetMapping("/size/max")
+	public ResponseEntity<?> getLargestCountryByPopulation()
+	{
+		Country largestCountry = CountriesApplication.ourCountryList.findLargestCountryByPopulation();
+		return new ResponseEntity<>(largestCountry, HttpStatus.OK);
+	}
 }

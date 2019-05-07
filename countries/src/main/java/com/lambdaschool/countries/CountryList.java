@@ -226,6 +226,22 @@ public class CountryList
 		return smallest;
 	}
 
+	public Country findLargestCountryByPopulation()
+	{
+		Country largest = countryList.get(0);
+
+		for(Country c: countryList)
+		{
+			if(c.getPopulation() > largest.getPopulation())
+			{
+				largest  = c;
+			}
+		}
+
+		return largest ;
+	}
+
+
 	public Country findCountry(CheckCountry tester)
 	{
 		for(Country c: countryList)
