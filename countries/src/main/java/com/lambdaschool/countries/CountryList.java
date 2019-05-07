@@ -256,6 +256,21 @@ public class CountryList
 		return smallest;
 	}
 
+	public Country findLargestCountryByMedianAge()
+	{
+		Country largest = countryList.get(0);
+
+		for(Country c: countryList)
+		{
+			if(c.getMedianAge() > largest.getMedianAge())
+			{
+				largest  = c;
+			}
+		}
+
+		return largest;
+	}
+
 	public Country findCountry(CheckCountry tester)
 	{
 		for(Country c: countryList)

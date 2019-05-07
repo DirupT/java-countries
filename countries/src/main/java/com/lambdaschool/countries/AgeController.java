@@ -28,4 +28,12 @@ public class AgeController
 		Country smallestCountry = CountriesApplication.ourCountryList.findSmallestCountryByMedianAge();
 		return new ResponseEntity<>(smallestCountry, HttpStatus.OK);
 	}
+
+	// localhost:8080/age/max
+	@GetMapping("/max")
+	public ResponseEntity<?> getLargestCountryByMedianAge()
+	{
+		Country largestCountry = CountriesApplication.ourCountryList.findLargestCountryByMedianAge();
+		return new ResponseEntity<>(largestCountry, HttpStatus.OK);
+	}
 }
